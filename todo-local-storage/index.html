@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>App lista spesa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1 class="titolo">DA FARE</h1>
+    <div class="app-lista" id="app">
+        <form @submit.prevent="aggiungiVal">
+        <input v-model="inputVal" class="input-val">
+        <button class="aggiungi" type="submit">Aggiungi</button>
+        </form>
+        <ul>
+           <li v-for="(voce, index ) in listaFiltrata">
+               <button class="voce" @click="fatto(voce)" 
+               v-bind:class="{barrato: voce.completato}">
+               <i class="fas fa-check " v-bind:class="{active: voce.completato }" ></i> {{voce.elemento}} </button>
+               <button class="cancella" @click="cancella(index)">
+                   <i class="far fa-trash-alt"></i>
+                </button>
+            </li>
+        </ul>
+        <hr>
+        <button class="filtri" :class="{filtriActive: filter == 'tutte'}" @click="filter = 'tutte' ">Tutte</button>
+        <button class="filtri" :class="{filtriActive: filter == 'daFare'}" @click="filter = 'daFare' ">Da fare</button>
+        <button class="filtri" :class="{filtriActive: filter == 'completato'}" @click="filter ='completato' ">Completate</button>
+        <div class="rimaste">{{rimaste}} rimanenti</div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

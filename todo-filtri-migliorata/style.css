@@ -1,0 +1,115 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: mediumseagreen;
+}
+.titolo{
+	text-align:center;
+	color:white;
+}
+ul{
+    outline: none;
+    padding: 0;
+    display: inline-grid;
+    width: 100%;
+}
+li{
+    list-style: none;
+    outline: none;
+    font-size: 18px;
+    color: #666;
+    margin-top: 5px;
+}
+.voce{
+    outline: none;
+    background: none;
+    border: 0 none;
+    font-family: arial;
+    color: #666;
+    font-size: 22px;
+  
+}
+.app-lista{
+    background-color: white;
+    padding: 20px;
+    width: 450px;
+    border-radius: 20px;
+    margin: 0 auto;
+
+}
+.input-val{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    outline: none;
+    padding: 10px;
+    font-size: 18px;
+    color: #666;
+    box-shadow: inset 0px 0px 10px #ddd;
+    min-width: 300px;
+}
+.input-val:focus {
+    border: 1px solid mediumseagreen;
+  }
+  .aggiungi{
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid mediumseagreen;
+    padding: 10px 20px;
+    border-radius: 2em;
+    font-size:18px;
+    color:#666;
+    outline: none;
+    box-shadow: 0px 0px 10px #ddd;
+}
+.aggiungi:hover{
+   background-color: mediumseagreen;
+   color:white;
+}
+.cancella{
+    outline: none;
+    font-size: 18px;
+    background: none;
+    float: right;
+    border:1px solid mediumseagreen;
+    border-radius: 50%;
+    color: mediumseagreen;
+    padding: 4px 6px;
+    box-shadow: 0px 0px 10px #ddd;
+}
+.cancella:hover {
+    background-color: mediumseagreen;
+    color: white;
+  }
+.barrato{
+    text-decoration: line-through;
+    color:mediumseagreen;
+}
+.fa-check{
+    opacity:0;
+}
+.active{
+    opacity:1;
+}
+.filtri{
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid mediumseagreen;
+    padding: 10px 20px;
+    border-radius: 2em;
+    font-size:18px;
+    color:#666;
+    outline: none;
+    box-shadow: 0px 0px 10px #ddd;
+}
+.filtri:hover{
+    background-color: mediumseagreen;
+    color: white;
+}
+.filtriActive{
+    background-color: mediumseagreen;
+    color: white;
+}
+.rimaste{
+    color: #666;
+    float:right;
+}

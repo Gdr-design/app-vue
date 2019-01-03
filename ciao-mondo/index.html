@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ciao Mondo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <span >{{giorno}}/{{mese}}/{{anno}}</span>
+       <span v-if="giorno === 13 && mese === 12">Buon compleanno!</span>
+        <h1>{{saluto}}</h1>
+        <div v-bind:class="[{green: bello}, {red: !bello}]">{{parola}}</div>
+
+        <div>{{age}}</div>
+        <div v-if="age >= 18" class="green">sei maggiorenne</div>
+        <div v-else="" class="red">non sei maggiorenne</div>
+        <p></p>
+        <p>{{numero}}</p>
+        <button v-on:click="aumenta(1)">Aumenta</button>
+        <button v-on:click="diminuisci(1)">Diminuisci</button>
+        <button v-on:click="aumenta(10)">Aumenta di 10</button>
+        <button v-on:click="diminuisci(10)">Diminuisci di 10</button>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

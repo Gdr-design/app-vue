@@ -1,0 +1,40 @@
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300!Important;
+}
+main{
+  margin-bottom: 80px;
+}
+.footer-fixed{
+position: fixed;
+bottom: 0;
+width: 100%;
+z-index: 999;
+}
+.page-footer{
+padding-top: 0!important;
+margin-top: 40px;
+}
+.card{
+max-width: 100%;
+}
+.skill{
+ margin: 0;
+font-size: 20px;
+}
+.myForm{
+ float:none!important;
+ margin: 0 auto;
+}
+.myForm input:focus, .myForm textarea:focus {
+color: #3f51b5;
+border-bottom: 1px solid #3f51b5!important;
+box-shadow: 0 1px 0 0 #3f51b5!important;
+}
+.myForm label{
+color: #3f51b5!important; 
+}

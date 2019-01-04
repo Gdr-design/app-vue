@@ -1,21 +1,15 @@
 $(document).ready(function(){
-    $('.sidenav').sidenav({
-        edge: 'left',
-        draggable: true
-    });
+  $('.sidenav').sidenav({
+      edge: 'left',
+      draggable: true
   });
+});
+
 
 var Home = { template: `<div class="center">
 <h1 >contenuto home</h1>
-<h2>{{mess}}</h2>
 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<div>`,
-              data(){
-                  return{
-                    mess: 'Ciao Mondo'
-                  }
-              }        
-}
+</div>` }
 var About = { template: `<div class="row">
 <div class="center"><img class="circle" src="http://www.gravatar.com/avatar/2018?d=robohash&s=300"></div>
 <div class="col s6 ">
@@ -30,10 +24,12 @@ var About = { template: `<div class="row">
 <div class="determinate" style="width: 70%"></div>
 </div>
 </div>
+</div>
 <div class="row.skil">
 <div ><p class="skill">Grafica 2d</p></div>
 <div class="progress">
 <div class="determinate" style="width: 90%"></div>
+</div>
 </div>
 </div>
 <div class="row.skill">
@@ -42,10 +38,12 @@ var About = { template: `<div class="row">
 <div class="determinate" style="width: 60%"></div>
 </div>
 </div>
+</div>
 <div class="row.skill">
 <div><p class="skill">Web Design</p></div>
 <div class="progress">
 <div class="determinate" style="width: 100%"></div>
+</div>
 </div>
 </div>
 <div class="row.skill">
@@ -53,8 +51,8 @@ var About = { template: `<div class="row">
 <div class="progress">
 <div class="determinate" style="width: 40%"></div>
 </div>
-</div>`}
-
+</div>
+</div>` }
 var Portfolio = { template: `<div class="row">
 <h1 class="center">PORTFOLIO</h1> 
 <div class="col s12 m4">
@@ -147,10 +145,9 @@ var Portfolio = { template: `<div class="row">
     </div>
   </div>
   </div> 
-  </div>`}
-  
+  </div>` }
 var Contatti = { template: `<div class="row">
-<h3 class="center">Contattami usando il form sotto</h3>
+<h3 class="center">contattami usando il form sotto</h3>
 <form class="col s6 myForm">
 <div class="input-field col s12">
 <input  type="text" id="nome" class="validate" >
@@ -179,7 +176,7 @@ var routes = [
     { path: '/contatti', component: Contatti }
   ]
 
-  var router = new VueRouter({
+var router = new VueRouter({
     routes // short for `routes: routes`
   })
 
@@ -187,6 +184,6 @@ new Vue ({
     router,
     el: '#app',
     data:{
-        
+        mess: 'Ciao Mondo'
     }
 }).$mount('#app')

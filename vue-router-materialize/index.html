@@ -1,77 +1,76 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Vue router</title>
+    <title>Vue Router</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- custom style -->
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <!-- icone materialize -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- materialize CSS -->
+    <!-- custom style -->
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
+<div id="app">
 
-    <div id="app">
         <header>
-            <nav class="indigo">
-                <a href="#" data-target="slide-out" class="sidenav-trigger show-on-medium-and-up"><i class="material-icons medium white-text">menu</i></a>
-                <div style="font-size: 20px;">Sito Portfolio</div>
-            </nav>
-
-            <ul id="slide-out" class="sidenav">
-                <li>
-                    <div class="user-view">
-                        <div class="background">
-                            <img src="asset/img/bg-sidenav.jpg">
-                        </div>
-                        <a href="#user"><img class="circle" src="http://www.gravatar.com/avatar/2018?d=robohash"></a>
-                        <a href="#name"><span class="white-text name">Mario Rossi</span></a>
-                        <a href="#email"><span class="white-text email">mariorossi@gmail.com</span></a>
-
-                <li>
-                    <router-link class="waves-effect" to="/"><i class="material-icons">home</i>Home</a>
-                </li>
-                <li>
-                    <router-link class="waves-effect" to="/about"><i class="material-icons">person</i>About me</a>
-                </li>
-                <li>
-                    <router-link class="waves-effect" to="/portfolio"><i class="material-icons">image</i>Portfolio</a>
-                </li>
-                <li>
-                    <router-link class="waves-effect" to="/contatti"><i class="material-icons">mail</i>Contatti</a>
-                </li>
-            </ul>
-        </header>
-
-        <main>
-            <div class="container">
-                <router-view></router-view>
-            </div>
-        </main>
-
-        <footer class="page-footer footer-fixed indigo">
-            <div class="footer-copyright">
+                <nav class="indigo">
+                    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-medium-and-up"><i class="material-icons medium white-text">menu</i></a>
+                    <div style="font-size: 20px;">Sito Portfolio</div>
+                </nav>
+    
+                <ul id="slide-out" class="sidenav">
+                    <li>
+                        <div class="user-view">
+                            <div class="background">
+                                <img src="asset/img/bg-sidenav.jpg">
+                            </div>
+                            <a href="#user"><img class="circle" src="http://www.gravatar.com/avatar/2018?d=robohash"></a>
+                            <a href="#name"><span class="white-text name">Mario Rossi</span></a>
+                            <a href="#email"><span class="white-text email">mariorossi@gmail.com</span></a>
+    
+                    <li>
+                        <router-link class="waves-effect" to="/"><i class="material-icons">home</i>Home</a>
+                    </li>
+                    <li>
+                        <router-link class="waves-effect" to="/about"><i class="material-icons">person</i>About me</a>
+                    </li>
+                    <li>
+                        <router-link class="waves-effect" to="/portfolio"><i class="material-icons">image</i>Portfolio</a>
+                    </li>
+                    <li>
+                        <router-link class="waves-effect" to="/contatti"><i class="material-icons">mail</i>Contatti</a>
+                    </li>
+                </ul>
+            </header>
+    
+            <main>
                 <div class="container">
-                    &copy; <a href="https://gdrdesign.it">GDRdesign</a> 2019
+                    <router-view></router-view>
                 </div>
-            </div>
-        </footer>
-    </div>
-    <!-- jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Materialize -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- vue.js -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- vue-route -->
-    <script src="https://unpkg.com/vue-router@3.0.2/dist/vue-router.js"></script>
-    <!-- custom js -->
-    <script src="main.js"></script>
-</body>
+            </main>
+    
+            <footer class="page-footer footer-fixed indigo">
+                <div class="footer-copyright">
+                    <div class="container">
+                        &copy; <a href="https://gdrdesign.it">GDRdesign</a> 2019
+                    </div>
+                </div>
+            </footer>
 
+</div> 
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- vue.js -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- vue router -->
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<!-- custom js -->
+<script src="main.js"></script>    
+</body>
 </html>

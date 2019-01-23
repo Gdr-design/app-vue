@@ -3,12 +3,7 @@ $(document).ready(function () {
 });
 
 var firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyBXt2gg6xgQIk0Qq50GFp-K1IxcNjY3q_I",
-    authDomain: "tutorial-vue-80f43.firebaseapp.com",
-    databaseURL: "https://tutorial-vue-80f43.firebaseio.com",
-    projectId: "tutorial-vue-80f43",
-    storageBucket: "tutorial-vue-80f43.appspot.com",
-    messagingSenderId: "884165146384"
+    //inserire le api firebase come mostrato nel video
 })
 
 var db = firebaseApp.database();
@@ -44,6 +39,13 @@ new Vue({
                 this.nuovoFilm.tag = "da vedere";
             } else {
                 this.nuovoFilm.tag = "già visto";
+            }
+        },
+		editTag() {
+            if (this.editFilm.tag == "già visto") {
+                this.editFilm.tag = "da vedere";
+            } else {
+                this.editFilm.tag = "già visto";
             }
         },
         aggiungiFilm() {

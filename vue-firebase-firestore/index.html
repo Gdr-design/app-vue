@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Archivio Film</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Materialize.CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- icone materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.css">
+    <!-- mio stile -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+
+        <div class="row">
+            <!--form aggiunta film-->
+            <div class="col s12 m4">
+                <form v-on:submit.prevent="aggiungiFilm">
+                    <div class="input-field col s12">
+                        <input type="text" id="addtitolo" class="validate" v-model="nuovoFilm.titolo">
+                        <label for="addtitolo">Titolo</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input type="text" id="addlocandina" class="validate" v-model="nuovoFilm.locandina">
+                        <label for="addlocandina">Locandina</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input type="text" id="addregista" class="validate" v-model="nuovoFilm.regista">
+                        <label for="addregista">Regista</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input type="number" id="addanno" class="validate" v-model="nuovoFilm.anno">
+                        <label for="addanno">Anno</label>
+                    </div>
+                    <a @click="cambiaTag" class="left waves-effect waves-light btn">{{nuovoFilm.tag}}</a>
+                    <input type="submit" class="right waves-effect waves-light btn lime darken-1" value="Aggiungi Film">
+                </form>
+            </div>
+            <!--fine form aggiunta film-->
+
+            <!--Tabella-->
+            <div class="col s12 m8">
+                <table class="table-responsive highlight striped ">
+                    <thead>
+                        <tr>
+                            <th>Mark<i class="material-icons">arrow_drop_down</i></th>
+                            <th>Titolo<i class="material-icons">arrow_drop_down</i></th>
+                            <th>Locandina<i class="material-icons">arrow_drop_down</i></th>
+                            <th>Regista <i class="material-icons">arrow_drop_down</i></th>
+                            <th>Anno <i class="material-icons">arrow_drop_down</i></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="unfilm in filmcloud" v-bind:key="unfilm.film_id">
+                            <td v-if="unfilm.tag == 'già visto'"><i class="material-icons green-text">remove_red_eye</i></td>
+                            <td v-else></td>
+                            <td>
+                                <div id="titolo">{{unfilm.titolo}}</div>
+                            </td>
+                            <td>
+                                <img :src="unfilm.locandina" style="max-width: 50px;">
+                            </td>
+                            <td>
+                                <div id="regista">{{unfilm.regista}}</div>
+                            </td>
+                            <td>
+                                <div id="anno">{{unfilm.anno}}</div>
+                            </td>
+                            <td>
+                                <a><i @click="aggiornaFilm(unfilm)" class="modal-trigger material-icons" style="cursor: pointer;"
+                                        href="#edit-modal">create</i></a>
+                                <i @click="cancellaFilm(unfilm.film_id)" class="material-icons deep-orange-text text-darken-4"
+                                    style="cursor: pointer;">delete</i></td>
+            </div>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+        <!--Fine Tabella-->
+    </div>
+
+    <!--edit Modal-->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <h4>Modifica film</h4>
+            <form v-on:submit.prevent="modificaFilm">
+                <div class="input-field col s12">
+                    <input type="text" id="mod-titolo" class="validate " v-model="editFilm.titolo" value="editFilm.titolo">
+                    <label class="label-attiva" for="mod-titolo">Titolo</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="mod-locandina" class="validate " v-model="editFilm.locandina" value="editFilm.locandina">
+                    <label class="label-attiva" for="mod-locandina">Inserisci l'url dell'imagine della locandina</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="mod-regista" class="validate " v-model="editFilm.regista" value="editFilm.regista">
+                    <label class="label-attiva" for="mod-regista">Regista</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="number" id="mod-anno" class="validate " v-model="editFilm.anno" value="0">
+                    <label class="label-attiva" for="mod-anno">Anno</label>
+                </div>
+                <a class="left waves-effect waves-light btn" @click="editTag">{{editFilm.tag}}</a>
+                <input type="submit" class="right waves-effect waves-light btn lime darken-1 modal-close" style="cursor: pointer; ">
+            </form>
+        </div>
+    </div>
+    <!-- /EDIT MODAL -->
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Toastr.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js"></script>
+    <!-- Materialize.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Firebase.js -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-firestore.js"></script>
+    <!-- VueJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- VueFire -->
+    <script src="https://unpkg.com/vuefire@1.4.5/dist/vuefire.js"></script>
+    <!-- script app -->
+    <script src="main.js"></script>
+</body>
+
+</html>

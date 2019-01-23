@@ -1,0 +1,7 @@
+body {
+text-align: center;
+}
+.label-attiva{
+    transform: translateY(-14px) scale(0.8)!important;
+    transform-origin: 0 0!important; 
+}

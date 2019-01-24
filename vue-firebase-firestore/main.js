@@ -39,6 +39,11 @@ new Vue({
         this.pubblicaLista();
     },
     methods: {
+		randomNumber(){
+            return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+              );
+          },
         cambiaTag() {
             if (this.nuovoFilm.tag == "già visto") {
                 this.nuovoFilm.tag = "da vedere";
@@ -63,7 +68,7 @@ new Vue({
             });
         },
         aggiungiFilm() {
-            this.nuovoFilm.film_id++ ,
+            this.nuovoFilm.film_id = this.randomNumber();
                 db.collection("filmcloud").add(this.nuovoFilm).then(this.pubblicaLista)
             this.nuovoFilm.titolo = '',
                 this.nuovoFilm.locandina = '',

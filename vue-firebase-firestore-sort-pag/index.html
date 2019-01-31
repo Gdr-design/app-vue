@@ -51,16 +51,16 @@
                 <table class="table-responsive highlight striped ">
                     <thead>
                         <tr>
-                            <th>Mark<i class="material-icons">arrow_drop_down</i></th>
-                            <th>Titolo<i class="material-icons">arrow_drop_down</i></th>
-                            <th>Locandina<i class="material-icons">arrow_drop_down</i></th>
-                            <th>Regista <i class="material-icons">arrow_drop_down</i></th>
-                            <th>Anno <i class="material-icons">arrow_drop_down</i></th>
+                            <th>Mark<i class="material-icons arrow">arrow_drop_down</i></th>
+                            <th @click="sortTabella('titolo')" :class="attivazioneHeader('titolo')">Titolo<i class="material-icons arrow">arrow_drop_down</i></th>
+                            <th>Locandina<i class="material-icons arrow">arrow_drop_down</i></th>
+                            <th @click="sortTabella('regista')" :class="attivazioneHeader('regista')">Regista <i class="material-icons arrow">arrow_drop_down</i></th>
+                            <th @click="sortTabella('anno')" :class="attivazioneHeader('anno')">Anno<i class="material-icons arrow">arrow_drop_down</i></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="unfilm in filmcloud" v-bind:key="unfilm.film_id">
+                        <tr v-for="unfilm in sortedFilmcloud" v-bind:key="unfilm.film_id">
                             <td v-if="unfilm.tag == 'già visto'"><i class="material-icons green-text">remove_red_eye</i></td>
                             <td v-else></td>
                             <td>
@@ -84,7 +84,9 @@
             </tr>
             </tbody>
             </table>
-			</div>
+              <button @click="nextPage" class="right waves-effect waves-light btn" >Successiva</button>          
+              <button @click="prevPage" class="right waves-effect waves-light btn" >Precedente</button>          
+        </div>
         </div>
         <!--Fine Tabella-->
     </div>
@@ -95,19 +97,19 @@
             <h4>Modifica film</h4>
             <form v-on:submit.prevent="modificaFilm">
                 <div class="input-field col s12">
-                    <input type="text" id="mod-titolo" class="validate " v-model="editFilm.titolo" value="editFilm.titolo">
+                    <input type="text" id="mod-titolo" class="validate" v-model="editFilm.titolo" value="editFilm.titolo">
                     <label class="label-attiva" for="mod-titolo">Titolo</label>
                 </div>
                 <div class="input-field col s12">
-                    <input type="text" id="mod-locandina" class="validate " v-model="editFilm.locandina" value="editFilm.locandina">
+                    <input type="text" id="mod-locandina" class="validate" v-model="editFilm.locandina" value="editFilm.locandina">
                     <label class="label-attiva" for="mod-locandina">Inserisci l'url dell'imagine della locandina</label>
                 </div>
                 <div class="input-field col s12">
-                    <input type="text" id="mod-regista" class="validate " v-model="editFilm.regista" value="editFilm.regista">
+                    <input type="text" id="mod-regista" class="validate" v-model="editFilm.regista" value="editFilm.regista">
                     <label class="label-attiva" for="mod-regista">Regista</label>
                 </div>
                 <div class="input-field col s12">
-                    <input type="number" id="mod-anno" class="validate " v-model="editFilm.anno" value="0">
+                    <input type="number" id="mod-anno" class="validate" v-model="editFilm.anno" value="0">
                     <label class="label-attiva" for="mod-anno">Anno</label>
                 </div>
                 <a class="left waves-effect waves-light btn" @click="editTag">{{editFilm.tag}}</a>
